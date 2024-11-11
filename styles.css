@@ -36,3 +36,25 @@ p {
 .container {
     margin-top: 50px; /* Add margin to avoid overlap with the banner */
 }
+
+.social-icons a {
+    color: #555;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+.social-icons a:hover {
+    color: #007bff;
+}
+footer {
+    margin-top: 100px; /* Large margin on footer */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    background-color: #222;
+}
+
+.social-icons a {
+    font-size: 32px; /* Larger social icons */
+}
