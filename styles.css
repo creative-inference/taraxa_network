@@ -1,60 +1,199 @@
+/* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif; /* Using Roboto as a slightly more modern default */
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height for content that might exceed viewport */
     background-color: #000;
+    color: #ccc; /* Default text color for body */
+    padding-top: 70px; /* Account for fixed top banner & some spacing */
 }
 
-h1 {
-    color: #fff;
+h1, h2, h3, h4, h5, h6 {
+    color: #fff; /* White for all headings */
 }
 
 p {
-    color: #fff;
+    color: #ccc; /* Lighter grey for paragraphs */
 }
 
 .top-banner {
-    background-color: #222; /* Darker gray */
-    color: #ccc; /* Grey text */
+    background-color: #1a1a1a; /* Even darker gray for contrast */
+    color: #aaa; /* Slightly lighter grey text for banner */
     text-align: center;
     padding: 10px 0;
-    width: 100%; /* Full width */
-    position: fixed; /* Fixed at the top */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1031; /* Ensure it's above other content */
+    border-bottom: 1px solid #333;
 }
 
-.top-banner a {
-    color: #00f; /* Different color for the link */
-    text-decoration: underline; /* Underlined link */
+.top-banner a.official-link { /* Specific class for the official link */
+    color: #66aaff; /* Brighter blue for visibility on dark bg */
+    text-decoration: underline;
+}
+.top-banner a.official-link:hover {
+    color: #99ccff;
 }
 
-.container {
-    margin-top: 50px; /* Add margin to avoid overlap with the banner */
+/* Header for Praxis Site Name & Logo */
+.praxis-header {
+    text-align: center;
+    padding-top: 1rem; /* Reduced padding as body now has top padding */
+    padding-bottom: 1rem;
+    width: 100%;
+    background-color: #0d0d0d; /* Very dark, almost black */
+    border-bottom: 2px solid #2a2a2a;
 }
 
-.social-icons a {
-    color: #555;
-    margin: 0 10px;
-    font-size: 24px;
+.site-logo {
+    max-width: 200px; /* Adjust as needed for dark theme */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.praxis-header h1 {
+    margin-top: 0.5rem;
+    font-size: 2.5rem; /* Slightly smaller for denser feel */
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #e0e0e0; /* Off-white for heading */
+}
+
+.praxis-subtitle {
+    font-size: 1.1rem;
+    color: #999; /* Grey subtitle */
+    font-weight: 300;
+}
+
+/* Main content container (Bootstrap .container is used in HTML) */
+.container.main-content {
+    margin-top: 20px; /* Space below header */
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #121212; /* Dark background for content area */
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05); /* Subtle light shadow on dark */
+    width: 90%; /* Adjust width as preferred */
+    max-width: 1100px;
+}
+
+.intro-text, .closing-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #bbb; /* Lighter text for readability */
+    text-align: center;
+    padding-left: 15px; /* Add some padding if using Bootstrap .container */
+    padding-right: 15px;
+}
+
+.section-title {
+    color: #ddd; /* Light grey for section titles */
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 1.8rem; /* Adjusted size */
+    text-align: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+/* Word Cloud Styling */
+.word-cloud-container {
+    padding: 20px 10px; /* Reduced padding */
+}
+
+.word-cloud .word {
     text-decoration: none;
+    color: #121212; /* Dark text on light buttons */
+    background-color: #66aaff; /* Brighter blue for buttons */
+    padding: 7px 14px;
+    margin: 5px 3px;
+    border-radius: 20px;
+    display: inline-block;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(255,255,255,0.1);
+    font-weight: 500;
 }
-.social-icons a:hover {
-    color: #007bff;
+
+.word-cloud .word:hover {
+    background-color: #99ccff; /* Lighter blue on hover */
+    transform: scale(1.05);
+    box-shadow: 0 2px 6px rgba(255,255,255,0.15);
 }
-footer {
-    margin-top: 100px; /* Large margin on footer */
-    color: #fff;
+/* Word sizes - adjust background for contrast if needed */
+.word-cloud .size1 { font-size: 0.85em; padding: 6px 12px; background-color: #5599ee;}
+.word-cloud .size2 { font-size: 1.05em; padding: 8px 16px; background-color: #4488dd;}
+.word-cloud .size3 { font-size: 1.25em; padding: 10px 19px; background-color: #3377cc;}
+.word-cloud .size4 { font-size: 1.45em; padding: 12px 22px; background-color: #88bbff; color: #000;}
+
+
+/* Capabilities Section */
+.capability-card {
+    background: #1c1c1c; /* Slightly lighter dark for cards */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.07);
+    border-left: 4px solid #66aaff; /* Blue accent */
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.capability-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+}
+
+.capability-card h3 {
+    margin-top: 0;
+    color: #d0d0d0; /* Lighter heading for cards */
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.capability-card h3 .fas {
+    color: #66aaff; /* Blue for icons */
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+.capability-card p {
+    color: #a0a0a0; /* Grey text for card content */
+}
+
+/* Footer */
+.praxis-footer { /* Using your existing footer tag in HTML, but can use this class */
+    margin-top: auto; /* Pushes footer to bottom if content is short with flexbox */
+    color: #aaa;
     text-align: center;
     padding: 20px 0;
     width: 100%;
-    background-color: #222;
+    background-color: #1a1a1a; /* Match top banner for consistency */
+    border-top: 1px solid #333;
 }
 
-.social-icons a {
-    font-size: 32px; /* Larger social icons */
+.praxis-footer .social-icons a {
+    color: #888; /* Grey social icons */
+    margin: 0 12px; /* Slightly more margin */
+    font-size: 28px; /* Adjusted size */
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
+.praxis-footer .social-icons a:hover {
+    color: #66aaff; /* Blue on hover */
+}
+
+.praxis-footer p {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0;
+}
+
+/* Bootstrap .container already provides centering and responsive width,
+   so we don't need the one from your original styles.css for general content.
+   The .container.main-content class above styles the specific content block. */

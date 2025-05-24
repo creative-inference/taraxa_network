@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine ID | Taraxa Network Praxis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPFC6F2WZX"></script> <!-- Corrected ID -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LPFC6F2WZX'); // Corrected ID
+    </script>
+</head>
+<body>
+    <div class="top-banner">
+        Taraxa Network Praxis is a community run experimental site. Visit the official <a href="https://taraxa.io" target="_blank" class="official-link">Taraxa.io</a> site.
+    </div>
+
+    <header class="praxis-header text-center py-4">
+        <div class="container">
+            <a href="index.html"><img src="img/taraxa_new.png" alt="Taraxa Network Logo" class="img-fluid mb-3 site-logo"></a>
+            <h1><a href="index.html" style="color: inherit; text-decoration: none;">Taraxa Network Praxis</a></h1>
+            <p class="lead praxis-subtitle">Orchestrating the Future of Autonomous Economies</p>
+        </div>
+    </header>
+
+    <div class="container main-content my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Machine ID on Taraxa</li>
+            </ol>
+        </nav>
+
+        <h2 class="page-main-heading text-center">Secure and Verifiable Machine Identity</h2>
+        
+            <p class="page-introduction text-center px-md-3">For machines to participate meaningfully in a decentralized economy, they require a secure, unique, and verifiable digital identity. Taraxa provides mechanisms for establishing robust Machine IDs on its ledger.</p>
+        
+
+        <hr class="my-4">
+
+        
+            <section class="page-section my-4">
+                <h3>The Importance of Machine Identity</h3>
+                <div><p>In an M2M or EoT world, knowing 'who' or 'what' you are interacting with is crucial for trust and security. Legacy IoT systems often suffer from siloed and insecure identity management.</p><p>A decentralized Machine ID allows a device to prove its authenticity, track its history, own assets, and be held accountable for its actions.</p></div>
+            </section>
+        
+            <section class="page-section my-4">
+                <h3>Machine ID on Taraxa:</h3>
+                <div><ul><li><strong>Decentralized & Tamper-Proof:</strong> Identities are registered on the blockchain, making them resistant to censorship and unauthorized modification.</li><li><strong>Ownership & Control:</strong> Machines (or their owners) can control their digital identity and associated data.</li><li><strong>Asset Ownership:</strong> A machine with an ID can directly own digital assets (tokens, NFTs representing data or capabilities).</li><li><strong>Service Authorization:</strong> Enables secure authentication for accessing services or interacting with other machines.</li><li><strong>Reputation Building:</strong> A stable Machine ID is foundational for building a verifiable on-chain reputation based on past actions and reliability.</li></ul></div>
+            </section>
+        
+            <section class="page-section my-4">
+                <h3>Use Cases</h3>
+                <div><p>Securely identifying autonomous vehicles in a traffic management system, verifying the authenticity of sensor data, enabling robots to own their generated IP, or allowing AI agents to build a trusted operational history.</p></div>
+            </section>
+        
+
+        
+            <section class="related-concepts my-5">
+                <h4>Related Concepts:</h4>
+                <ul>
+                    
+                        <li><a href="ai-agents.html">AI Agents</a></li>
+                    
+                        <li><a href="robotics.html">Robotics</a></li>
+                    
+                        <li><a href="iot-web3.html">IoT & Web3</a></li>
+                    
+                </ul>
+            </section>
+        
+
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-outline-primary">« Back to Main Concepts</a>
+        </div>
+    </div>
+
+    <footer class="praxis-footer text-center py-4">
+        <div class="social-icons mb-2">
+            <a href="https://x.com/taraxa_network" target="_blank" aria-label="Taraxa on X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <p class="mb-0">© <span id="currentYearTpl"></span> Taraxa Network Praxis (Community Site)</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Ensure the element exists before trying to set its textContent
+        const yearSpan = document.getElementById('currentYearTpl');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
