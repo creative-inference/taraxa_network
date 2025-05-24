@@ -9,12 +9,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPFC6F2WZX"></script> <!-- Corrected ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPFC6F2WZX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-LPFC6F2WZX'); // Corrected ID
+      gtag('config', 'G-LPFC6F2WZX');
     </script>
 </head>
 <body>
@@ -22,11 +22,16 @@
         Taraxa Network Praxis is a community run experimental site. Visit the official <a href="https://taraxa.io" target="_blank" class="official-link">Taraxa.io</a> site.
     </div>
 
-    <header class="praxis-header text-center py-4">
+    <!-- Added 'praxis-header-detail' class and reduced padding with py-2 -->
+    <header class="praxis-header praxis-header-detail text-center py-2">
         <div class="container">
-            <a href="index.html"><img src="img/taraxa_new.png" alt="Taraxa Network Logo" class="img-fluid mb-3 site-logo"></a>
-            <h1><a href="index.html" style="color: inherit; text-decoration: none;">Taraxa Network Praxis</a></h1>
-            <p class="lead praxis-subtitle">Orchestrating the Future of Autonomous Economies</p>
+            <a href="index.html"><img src="img/taraxa_new.png" alt="Taraxa Network Logo" class="img-fluid mb-2 site-logo"></a>
+            <!-- Changed h1 to a div with a class for styling the site title -->
+            <div class="detail-page-site-title">
+                <a href="index.html" style="color: inherit; text-decoration: none;">Taraxa Network Praxis</a>
+            </div>
+            <!-- Added 'detail-page-tagline' class -->
+            <p class="praxis-subtitle detail-page-tagline mb-0">Orchestrating the Future of Autonomous Economies</p>
         </div>
     </header>
 
@@ -38,9 +43,11 @@
             </ol>
         </nav>
 
-        <h2 class="page-main-heading text-center">The Convergence of IoT and Web3</h2>
+        <!-- This h2 will now be the visual focus -->
+        <h2 class="page-main-heading text-center display-4 mb-3">The Convergence of IoT and Web3</h2>
+
         
-            <p class="page-introduction text-center px-md-3">The Internet of Things (IoT) and Web3 technologies are converging to create a new paradigm for connected devices. This synergy lays the groundwork for a decentralized web where machines are first-class citizens, exchanging data and value seamlessly.</p>
+            <p class="page-introduction text-center px-md-3 lead">The Internet of Things (IoT) and Web3 technologies are converging to create a new paradigm for connected devices. This synergy lays the groundwork for a decentralized web where machines are first-class citizens, exchanging data and value seamlessly.</p>
         
 
         <hr class="my-4">
@@ -80,6 +87,9 @@
     <footer class="praxis-footer text-center py-4">
         <div class="social-icons mb-2">
             <a href="https://x.com/taraxa_network" target="_blank" aria-label="Taraxa on X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.reddit.com/r/TaraxaNetwork/" target="_blank" aria-label="Taraxa on Reddit"><i class="fab fa-reddit-alien"></i></a>
+            <a href="https://discord.gg/swCweeQU" target="_blank" aria-label="Taraxa on Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://t.me/taraxa_network_playground" target="_blank" aria-label="Taraxa on Telegram"><i class="fab fa-telegram-plane"></i></a>
         </div>
         <p class="mb-0">© <span id="currentYearTpl"></span> Taraxa Network Praxis (Community Site)</p>
     </footer>
@@ -88,7 +98,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Ensure the element exists before trying to set its textContent
         const yearSpan = document.getElementById('currentYearTpl');
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();

@@ -1,146 +1,196 @@
 /* styles.css */
+
+/* --- GLOBAL & BODY --- */
 body {
-    font-family: 'Roboto', Arial, sans-serif; /* Using Roboto as a slightly more modern default */
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh; /* Use min-height for content that might exceed viewport */
+    min-height: 100vh;
     background-color: #000;
     color: #ccc; /* Default text color for body */
-    padding-top: 70px; /* Account for fixed top banner & some spacing */
+    padding-top: 50px; /* Account for fixed top banner */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #fff; /* White for all headings */
+    color: #fff; /* White for all headings by default */
 }
 
 p {
-    color: #ccc; /* Lighter grey for paragraphs */
+    color: #ccc; /* Lighter grey for paragraphs by default */
+    line-height: 1.7; /* Improved readability for paragraphs */
 }
 
+a {
+    color: #66aaff; /* Default link color for dark theme */
+    text-decoration: none;
+}
+a:hover {
+    color: #99ccff;
+    text-decoration: underline;
+}
+
+/* --- TOP BANNER --- */
 .top-banner {
-    background-color: #1a1a1a; /* Even darker gray for contrast */
-    color: #aaa; /* Slightly lighter grey text for banner */
+    background-color: #1a1a1a;
+    color: #aaa;
     text-align: center;
     padding: 10px 0;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1031; /* Ensure it's above other content */
+    z-index: 1031;
     border-bottom: 1px solid #333;
+    font-size: 0.9rem;
 }
 
-.top-banner a.official-link { /* Specific class for the official link */
-    color: #66aaff; /* Brighter blue for visibility on dark bg */
+.top-banner a.official-link {
+    color: #66aaff;
     text-decoration: underline;
 }
 .top-banner a.official-link:hover {
     color: #99ccff;
 }
 
-/* Header for Praxis Site Name & Logo */
+/* --- MAIN PAGE HEADER (praxis-header on index.html) --- */
 .praxis-header {
     text-align: center;
-    padding-top: 1rem; /* Reduced padding as body now has top padding */
-    padding-bottom: 1rem;
+    padding-top: 1.5rem; /* Original padding for main page header */
+    padding-bottom: 1.5rem;
     width: 100%;
-    background-color: #0d0d0d; /* Very dark, almost black */
+    background-color: #0d0d0d;
     border-bottom: 2px solid #2a2a2a;
 }
 
-.site-logo {
-    max-width: 200px; /* Adjust as needed for dark theme */
+.praxis-header .site-logo { /* Logo on main page header */
+    max-width: 200px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* More space on main page */
 }
 
-.praxis-header h1 {
-    margin-top: 0.5rem;
-    font-size: 2.5rem; /* Slightly smaller for denser feel */
+.praxis-header h1 { /* Site title on main page header */
+    margin-top: 0;
+    font-size: 2.5rem;
     font-weight: 300;
     letter-spacing: 1px;
-    color: #e0e0e0; /* Off-white for heading */
+    color: #e0e0e0;
+}
+.praxis-header h1 a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.praxis-subtitle {
+.praxis-header .praxis-subtitle { /* Tagline on main page header */
     font-size: 1.1rem;
-    color: #999; /* Grey subtitle */
+    color: #999;
     font-weight: 300;
 }
 
-/* Main content container (Bootstrap .container is used in HTML) */
+/* --- DETAIL PAGE HEADER (praxis-header-detail on sub-pages) --- */
+.praxis-header-detail {
+    /* Inherits base .praxis-header styles, then overrides: */
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    background-color: #111111; /* Can be slightly different if desired */
+    border-bottom: 1px solid #222;
+}
+
+.praxis-header-detail .site-logo {
+    max-width: 70px; /* Smaller logo on detail pages */
+    margin-bottom: 5px !important;
+}
+
+.praxis-header-detail .detail-page-site-title a {
+    font-size: 1.1rem; /* Smaller site title on detail pages */
+    font-weight: 400;
+    color: #b0b0b0;
+    text-decoration: none;
+}
+.praxis-header-detail .detail-page-site-title a:hover {
+    text-decoration: underline;
+    color: #d0d0d0;
+}
+
+.praxis-header-detail .detail-page-tagline {
+    font-size: 0.75rem; /* Smaller tagline on detail pages */
+    color: #777;
+    margin-bottom: 0 !important;
+    font-weight: 300;
+}
+
+/* --- MAIN CONTENT AREA (Bootstrap .container.main-content) --- */
 .container.main-content {
-    margin-top: 20px; /* Space below header */
+    margin-top: 20px;
     margin-bottom: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #121212; /* Dark background for content area */
+    padding: 25px; /* Consistent padding */
+    background-color: #121212;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05); /* Subtle light shadow on dark */
-    width: 90%; /* Adjust width as preferred */
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    width: 90%;
     max-width: 1100px;
 }
 
 .intro-text, .closing-text {
     font-size: 1.1rem;
     margin-bottom: 30px;
-    color: #bbb; /* Lighter text for readability */
+    color: #bbb;
     text-align: center;
-    padding-left: 15px; /* Add some padding if using Bootstrap .container */
+    padding-left: 15px;
     padding-right: 15px;
 }
 
-.section-title {
-    color: #ddd; /* Light grey for section titles */
-    margin-bottom: 30px;
+.section-title { /* For section titles on index.html, like "Explore Core Concepts" */
+    color: #ddd;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem; /* Adjusted spacing */
     font-weight: 400;
-    font-size: 1.8rem; /* Adjusted size */
+    font-size: 1.8rem;
     text-align: center;
     border-bottom: 1px solid #444;
     padding-bottom: 10px;
 }
 
-/* Word Cloud Styling */
+/* --- WORD CLOUD (on index.html) --- */
 .word-cloud-container {
-    padding: 20px 10px; /* Reduced padding */
+    padding: 20px 10px;
 }
 
 .word-cloud .word {
     text-decoration: none;
-    color: #121212; /* Dark text on light buttons */
-    background-color: #66aaff; /* Brighter blue for buttons */
+    color: #0a0a23; /* Darker text for better contrast on light blue */
+    background-color: #66aaff;
     padding: 7px 14px;
-    margin: 5px 3px;
+    margin: 6px 4px;
     border-radius: 20px;
     display: inline-block;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 1px 3px rgba(255,255,255,0.1);
     font-weight: 500;
 }
-
 .word-cloud .word:hover {
-    background-color: #99ccff; /* Lighter blue on hover */
+    background-color: #99ccff;
     transform: scale(1.05);
     box-shadow: 0 2px 6px rgba(255,255,255,0.15);
 }
-/* Word sizes - adjust background for contrast if needed */
 .word-cloud .size1 { font-size: 0.85em; padding: 6px 12px; background-color: #5599ee;}
 .word-cloud .size2 { font-size: 1.05em; padding: 8px 16px; background-color: #4488dd;}
 .word-cloud .size3 { font-size: 1.25em; padding: 10px 19px; background-color: #3377cc;}
-.word-cloud .size4 { font-size: 1.45em; padding: 12px 22px; background-color: #88bbff; color: #000;}
+.word-cloud .size4 { font-size: 1.45em; padding: 12px 22px; background-color: #88bbff; color: #002244; font-weight: bold;}
 
-
-/* Capabilities Section */
+/* --- CAPABILITY CARDS (on index.html) --- */
+.capabilities-section { /* Added for potential outer spacing */
+    margin-top: 2rem;
+}
 .capability-card {
-    background: #1c1c1c; /* Slightly lighter dark for cards */
-    padding: 20px;
+    background: #1c1c1c;
+    padding: 25px;
     margin-bottom: 20px;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(255,255,255,0.07);
-    border-left: 4px solid #66aaff; /* Blue accent */
+    border-left: 4px solid #66aaff;
     height: 100%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -148,44 +198,117 @@ p {
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(255,255,255,0.1);
 }
-
 .capability-card h3 {
     margin-top: 0;
-    color: #d0d0d0; /* Lighter heading for cards */
+    color: #d0d0d0;
     font-size: 1.3rem;
     font-weight: 500;
     display: flex;
     align-items: center;
 }
 .capability-card h3 .fas {
-    color: #66aaff; /* Blue for icons */
+    color: #66aaff;
     margin-right: 10px;
     font-size: 1.4rem;
 }
 .capability-card p {
-    color: #a0a0a0; /* Grey text for card content */
+    color: #a0a0a0;
+    font-size: 0.95rem;
 }
 
-/* Footer */
-.praxis-footer { /* Using your existing footer tag in HTML, but can use this class */
-    margin-top: auto; /* Pushes footer to bottom if content is short with flexbox */
+/* --- DETAIL PAGE SPECIFIC CONTENT STYLES --- */
+.breadcrumb { /* Bootstrap breadcrumb styling for dark theme */
+    background-color: #2a2a2a;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+.breadcrumb-item a {
+    color: #88bbff;
+}
+.breadcrumb-item.active {
+    color: #999;
+}
+
+.page-main-heading { /* Content title on detail pages, e.g., "Machine Agreements" */
+    color: #efefef;
+    font-weight: 300; /* For Bootstrap display-4 */
+    margin-top: 1.5rem; /* Space above the main content title */
+    margin-bottom: 1rem !important; /* Overriding Bootstrap's display-4 margin if needed */
+}
+
+.page-introduction.lead { /* Introduction paragraph on detail pages */
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    font-weight: 300; /* Consistent with Bootstrap 'lead' */
+    margin-bottom: 1.5rem;
+}
+
+.main-content .page-section { /* Sections within a detail page */
+    margin-bottom: 2rem; /* Space between content sections */
+}
+
+.main-content .page-section h3 { /* Headings within detail page content (e.g., "What are they?") */
+    color: #c5cae9;
+    font-size: 1.6rem; /* Prominent section headings */
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #444;
+    font-weight: 400;
+}
+.main-content .page-section div { /* Content within sections */
+    color: #b0b0b0;
+}
+.main-content .page-section ul {
+    padding-left: 20px;
+}
+.main-content .page-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.related-concepts h4 {
+    color: #c5cae9;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.related-concepts ul {
+    list-style: none;
+    padding-left: 0;
+}
+.related-concepts ul li a {
+    color: #88bbff;
+}
+
+.btn-outline-primary { /* Bootstrap button customization for dark theme */
+    color: #88bbff;
+    border-color: #88bbff;
+}
+.btn-outline-primary:hover {
+    color: #000;
+    background-color: #88bbff;
+    border-color: #88bbff;
+}
+
+
+/* --- FOOTER --- */
+.praxis-footer {
+    margin-top: auto;
     color: #aaa;
     text-align: center;
     padding: 20px 0;
     width: 100%;
-    background-color: #1a1a1a; /* Match top banner for consistency */
+    background-color: #1a1a1a;
     border-top: 1px solid #333;
 }
 
 .praxis-footer .social-icons a {
-    color: #888; /* Grey social icons */
-    margin: 0 12px; /* Slightly more margin */
-    font-size: 28px; /* Adjusted size */
+    color: #888;
+    margin: 0 12px;
+    font-size: 28px;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 .praxis-footer .social-icons a:hover {
-    color: #66aaff; /* Blue on hover */
+    color: #66aaff;
 }
 
 .praxis-footer p {
@@ -193,7 +316,3 @@ p {
     color: #888;
     margin-bottom: 0;
 }
-
-/* Bootstrap .container already provides centering and responsive width,
-   so we don't need the one from your original styles.css for general content.
-   The .container.main-content class above styles the specific content block. */
