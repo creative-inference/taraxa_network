@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.taraxa.network/</loc>
-    <lastmod>2024-11-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <loc>https://taraxa.network/index.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/agentic-economy.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/depin.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/economy-of-things.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/iot-web3.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/m2m-economy.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/machine-defi.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/machine-id.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/machine-agreements.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/microtransactions.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/robotics.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/tokenization.html</loc>
   </url>
 </urlset>
