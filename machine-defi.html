@@ -22,15 +22,12 @@
         Taraxa Praxis is a community run experimental site. Visit the official <a href="https://taraxa.io" target="_blank" class="official-link">Taraxa.io</a> site.
     </div>
 
-    <!-- Added 'praxis-header-detail' class and reduced padding with py-2 -->
     <header class="praxis-header praxis-header-detail text-center py-2">
         <div class="container">
             <a href="index.html"><img src="img/taraxa_new.png" alt="Taraxa Network Logo" class="img-fluid mb-2 site-logo"></a>
-            <!-- Changed h1 to a div with a class for styling the site title -->
             <div class="detail-page-site-title">
                 <a href="index.html" style="color: inherit; text-decoration: none;">Taraxa Praxis</a>
             </div>
-            <!-- Added 'detail-page-tagline' class -->
             <p class="praxis-subtitle detail-page-tagline mb-0">Orchestrating the Future of Autonomous Economies</p>
         </div>
     </header>
@@ -43,7 +40,6 @@
             </ol>
         </nav>
 
-        <!-- This h2 will now be the visual focus -->
         <h2 class="page-main-heading text-center display-4 mb-3">Machine DeFi (DeFAI): Autonomous Finance for the Machine Age</h2>
 
         
@@ -84,10 +80,23 @@
             </section>
         
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-5 mb-5"> <!-- Added mb-5 for spacing before next callout -->
             <a href="index.html" class="btn btn-outline-primary">« Back to Main Concepts</a>
         </div>
-    </div>
+
+        <!-- NEW SMALLER CALLOUT FOR DETAIL PAGES -->
+        <section class="detail-page-callout text-center py-4 mt-5">
+            <h4 class="detail-callout-title mb-2">Learn More About the Core Protocol</h4>
+            <p class="detail-callout-text mb-3">
+                This Praxis site explores applications. For deep dives into Taraxa's L1 technology, visit the official site.
+            </p>
+            <a href="https://taraxa.io" target="_blank" class="btn btn-sm btn-outline-light callout-button-detail">
+                Visit Taraxa.io <i class="fas fa-external-link-alt ml-1"></i>
+            </a>
+        </section>
+        <!-- END NEW SMALLER CALLOUT -->
+
+    </div> <!-- End of .container.main-content -->
 
     <footer class="praxis-footer text-center py-4">
         <div class="social-icons mb-2">
