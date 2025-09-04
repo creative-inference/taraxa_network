@@ -4,19 +4,13 @@
     <loc>https://taraxa.network/index.html</loc>
   </url>
   <url>
-    <loc>https://taraxa.network/agentic-economy.html</loc>
-  </url>
-  <url>
     <loc>https://taraxa.network/depin.html</loc>
-  </url>
-  <url>
-    <loc>https://taraxa.network/economy-of-things.html</loc>
   </url>
   <url>
     <loc>https://taraxa.network/iot-web3.html</loc>
   </url>
   <url>
-    <loc>https://taraxa.network/m2m-economy.html</loc>
+    <loc>https://taraxa.network/machine-agreements.html</loc>
   </url>
   <url>
     <loc>https://taraxa.network/machine-defi.html</loc>
@@ -25,13 +19,19 @@
     <loc>https://taraxa.network/machine-id.html</loc>
   </url>
   <url>
-    <loc>https://taraxa.network/machine-agreements.html</loc>
-  </url>
-  <url>
     <loc>https://taraxa.network/microtransactions.html</loc>
   </url>
   <url>
     <loc>https://taraxa.network/robotics.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/agentic-economy.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/economy-of-things.html</loc>
+  </url>
+  <url>
+    <loc>https://taraxa.network/m2m-economy.html</loc>
   </url>
   <url>
     <loc>https://taraxa.network/tokenization.html</loc>
