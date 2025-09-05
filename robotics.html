@@ -1,37 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics | Taraxa Praxis</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPFC6F2WZX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LPFC6F2WZX');
-    </script>
-    <!-- Event snippet for Page view conversion page --> <script> gtag('event', 'conversion', {'send_to': 'AW-1069557388/ZcsMCKSWg_sYEIzNgP4D'}); </script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPFC6F2WZX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LPFC6F2WZX');
+</script>
+<!-- Event snippet for Page view conversion page --> 
+<script> gtag('event', 'conversion', {'send_to': 'AW-1069557388/ZcsMCKSWg_sYEIzNgP4D'}); </script>
 </head>
 <body>
     <div class="top-banner">
-        Taraxa Praxis is a community run experimental site. Visit the official <a href="https://taraxa.io" target="_blank" class="official-link">Taraxa.io</a> site.
-    </div>
+ </div>
+    <style>
+.site-header {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
 
-    <header class="praxis-header praxis-header-detail text-center py-2">
-        <div class="container">
-            <a href="index.html"><img src="img/taraxa_new.png" alt="Taraxa Network Logo" class="img-fluid mb-2 site-logo"></a>
-            <div class="detail-page-site-title">
-                <a href="index.html" style="color: inherit; text-decoration: none;">Taraxa Praxis</a>
+.site-header .container {
+    max-width: 1400px;
+}
+
+.site-header .navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.site-header .navbar-brand:hover {
+    color: #87ceeb !important;
+    transform: translateY(-2px);
+}
+
+.site-header .brand-logo {
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.site-header .navbar-brand:hover .brand-logo {
+    transform: scale(1.1);
+}
+
+.site-header .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.site-header .brand-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.site-header .brand-subtitle {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    font-weight: 400;
+    margin: 0;
+    font-style: italic;
+}
+
+.site-header .navbar-nav {
+    gap: 1rem;
+}
+
+.site-header .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.3px;
+}
+
+.site-header .nav-link:hover {
+    background: rgba(135, 206, 235, 0.2);
+    color: #87ceeb !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+}
+
+.site-header .dropdown-menu {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.site-header .dropdown-item {
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.site-header .dropdown-item:hover {
+    background: rgba(135, 206, 235, 0.2);
+    color: #87ceeb;
+}
+
+.site-header .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.site-header .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.3);
+}
+
+.site-header .navbar-toggler:hover {
+    background: rgba(135, 206, 235, 0.2);
+    border-color: #87ceeb;
+}
+
+@media (max-width: 1200px) {
+    .site-header .container {
+        max-width: 1140px;
+    }
+    
+    .site-header .navbar-nav {
+        gap: 0.75rem;
+    }
+    
+    .site-header .nav-link {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .site-header {
+        padding: 0.75rem 0;
+    }
+    
+    .site-header .brand-title {
+        font-size: 1.5rem;
+    }
+    
+    .site-header .brand-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .site-header .brand-logo {
+        height: 45px;
+        margin-right: 15px;
+    }
+    
+    .site-header .navbar-collapse {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+    
+    .site-header .nav-link {
+        padding: 1rem 1.2rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .site-header .nav-link:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header .brand-title {
+        font-size: 1.3rem;
+    }
+    
+    .site-header .brand-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .site-header .brand-logo {
+        height: 40px;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-header {
+        padding: 0.5rem 0;
+    }
+    
+    .site-header .brand-title {
+        font-size: 1.1rem;
+    }
+    
+    .site-header .brand-subtitle {
+        display: none;
+    }
+    
+    .site-header .brand-logo {
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .site-header .navbar-toggler {
+        padding: 6px 10px;
+    }
+}
+</style>
+
+<nav class="navbar navbar-expand-lg site-header">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            
+                <img src="img/uploads/bg-1757039083488-795862138.jpg" alt="Taraxa Praxis" class="brand-logo">
+            
+            <div class="brand-text">
+                <div class="brand-title">
+                    Taraxa Praxis
+                </div>
+                <div class="brand-subtitle">
+                    Explore the Real Life Uses Cases of Taraxa
+                </div>
             </div>
-            <p class="praxis-subtitle detail-page-tagline mb-0">Orchestrating the Future of Autonomous Economies</p>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="https://taraxa.io" target="_blank">
+                        <i class="fas fa-external-link-alt me-1"></i> Taraxa.io
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </div>
+</nav>
 
     <div class="container main-content my-4">
         <nav aria-label="breadcrumb">
@@ -121,23 +364,23 @@
     </div> <!-- End of .container.main-content -->
 
     <footer class="praxis-footer text-center py-4">
-        <div class="social-icons mb-2">
-            <a href="https://x.com/taraxa_network" target="_blank" aria-label="Taraxa on X"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.reddit.com/r/TaraxaNetwork/" target="_blank" aria-label="Taraxa on Reddit"><i class="fab fa-reddit-alien"></i></a>
-            <a href="https://discord.gg/wXJDJAPt" target="_blank" aria-label="Taraxa on Discord"><i class="fab fa-discord"></i></a>
-            <a href="https://t.me/taraxa_praxis" target="_blank" aria-label="Taraxa on Telegram"><i class="fab fa-telegram-plane"></i></a>
-        </div>
-        <p class="mb-0">© <span id="currentYear"></span> <a href="https://creativeinference.com" target="_blank">Creative Inference</a></p>
-    </footer>
+    <div class="social-icons mb-2">
+        <a href="https://x.com/taraxa_network" target="_blank" aria-label="Taraxa on X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.reddit.com/r/TaraxaNetwork/" target="_blank" aria-label="Taraxa on Reddit"><i class="fab fa-reddit-alien"></i></a>
+        <a href="https://discord.gg/wXJDJAPt" target="_blank" aria-label="Taraxa on Discord"><i class="fab fa-discord"></i></a>
+        <a href="https://t.me/taraxa_praxis" target="_blank" aria-label="Taraxa on Telegram"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+    <p class="mb-0">© <span id="currentYear"></span> Taraxa Praxis</p>
+</footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        const yearSpan = document.getElementById('currentYearTpl');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+</script>
 </body>
 </html>
