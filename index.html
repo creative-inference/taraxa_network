@@ -334,6 +334,38 @@
                     
                 
                     
+                        <div class="block-item block-youtube" 
+                             data-sort="6">
+                             
+                            
+                                <!-- YouTube Block -->
+                                <div class="youtube-block homepage-block">
+                                    
+                                        <h3 class="block-title">Mainnet or It Didn&#39;t Happen</h3>
+                                    
+                                    
+                                    
+                                        <div class="youtube-embed">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/1yvZyz055ow" 
+                                                frameborder="0" 
+                                                allowfullscreen
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                                            </iframe>
+                                        </div>
+                                    
+                                    
+                                        <div class="block-content">
+                                            <p class="block-description">In this epic mic drop at ETH Denver, Taraxa founder Steven Pu calls out the overstated metrics and promises of other blockchains. Taraxa verifies it's promises directly on mainnet.</p>
+                                        </div>
+                                    
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
                         <div class="block-item block-article" 
                              data-sort="1757105004934">
                              
@@ -830,12 +862,37 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         }
 
         .homepage-block {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Different gradients for different block types */
+        .text-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.9));
+        }
+        
+        .page-feature-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(248, 255, 248, 0.9));
+        }
+        
+        .quote-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 250, 240, 0.9));
+        }
+        
+        .youtube-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 248, 250, 0.9));
+        }
+        
+        .article-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(250, 240, 255, 0.9));
+        }
+        
+        .image-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 255, 240, 0.9));
         }
 
         .homepage-block:hover {
@@ -871,7 +928,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
 
         /* Hero Block Styles */
         .hero-block {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 245, 235, 0.9));
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -968,6 +1025,25 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         .article-block .article-title-link:hover {
             color: #007bff;
             text-decoration: none;
+        }
+
+        /* YouTube Block Styles */
+        .youtube-block .youtube-embed {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .youtube-block .youtube-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
         }
 
         /* Clickable Image Block Styles */
