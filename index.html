@@ -304,6 +304,45 @@
             <div class="blocks-grid" id="homepage-blocks">
                 
                     
+                        <div class="block-item block-image" 
+                             data-sort="3">
+                             
+                            
+                                <!-- Image Block -->
+                                <div class="image-block homepage-block clickable-block" 
+                                     style="cursor: pointer; position: relative;" 
+                                     title="Click to view full size image"
+                                     onclick="openImageModal('http://localhost:8080/img/uploads/bg-1757119775082-363364067.jpg', 'Taraxa is #1 in TPS/second per $ spent', 'Taraxa is #1 in TPS/second per $ spent')">
+                                    
+                                    <!-- Click indicator overlay -->
+                                    <div class="click-overlay">
+                                        <i class="fas fa-expand-alt"></i>
+                                        <span>Click to enlarge</span>
+                                    </div>
+                                    
+                                    
+                                        <img src="http://localhost:8080/img/uploads/bg-1757119775082-363364067.jpg" alt="Taraxa is #1 in TPS/second per $ spent" 
+                                             class="block-image">
+                                    
+                                    
+                                        <div class="block-content">
+                                            
+                                                <h3 class="block-title">Taraxa is #1 in TPS/second per $ spent</h3>
+                                            
+                                            
+                                                <div class="block-body">
+                                                    If you use your blockchain for decentralization, you should care about efficiency and low cost execution. On Taraxa it costs the least to run the most transactions per second and it's not even really close.
+                                                </div>
+                                            
+                                        </div>
+                                    
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
                         <div class="block-item block-article" 
                              data-sort="1757105004934">
                              
@@ -850,6 +889,67 @@
             text-decoration: none;
         }
 
+        /* Clickable Image Block Styles */
+        .clickable-block {
+            transition: all 0.3s ease;
+        }
+
+        .clickable-block:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2) !important;
+            border-color: rgba(0, 123, 255, 0.3) !important;
+        }
+
+        .click-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 123, 255, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .clickable-block:hover .click-overlay {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .click-overlay i {
+            font-size: 16px;
+        }
+
+        .clickable-block::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, rgba(0, 123, 255, 0.3), transparent);
+            border-radius: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .clickable-block:hover::before {
+            opacity: 1;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 767px) {
             .homepage-block {
@@ -879,5 +979,55 @@
         yearSpan.textContent = new Date().getFullYear();
     }
 </script>
+    
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="background-color: #ffffff; color: #212529;">
+                <div class="modal-header" style="background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
+                    <h5 class="modal-title" id="imageModalLabel" style="color: #212529;">
+                        <i class="fas fa-image"></i> View Image
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #212529;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center" style="background-color: #ffffff; padding: 20px;">
+                    <img id="modalImage" src="" alt="Full size image" class="img-fluid rounded">
+                </div>
+                <div class="modal-footer" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+                    <a id="downloadImageBtn" href="" download class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Image
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openImageModal(imageSrc, imageAlt, blockTitle) {
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('imageModalLabel');
+        const downloadBtn = document.getElementById('downloadImageBtn');
+        
+        modalImage.src = imageSrc;
+        modalImage.alt = imageAlt || 'Full size image';
+        downloadBtn.href = imageSrc;
+        
+        // Update modal title to include block title
+        if (blockTitle && blockTitle.trim()) {
+            modalTitle.innerHTML = '<i class="fas fa-image"></i> ' + blockTitle;
+        } else {
+            modalTitle.innerHTML = '<i class="fas fa-image"></i> View Image';
+        }
+        
+        // Set download filename from URL
+        const filename = imageSrc.split('/').pop() || 'image';
+        downloadBtn.download = filename;
+        
+        $('#imageModal').modal('show');
+    }
+    </script>
 </body>
 </html>
