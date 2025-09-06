@@ -304,6 +304,36 @@
             <div class="blocks-grid" id="homepage-blocks">
                 
                     
+                        <div class="block-item block-hero" 
+                             data-sort="4">
+                             
+                            
+                                <!-- Hero Block -->
+                                <div class="hero-block text-center py-5 mb-4">
+                                    <div class="hero-content">
+                                        
+                                            <img src="/img/uploads/bg-1757039083488-795862138.jpg" alt="Taraxa Praxis" 
+                                                 class="hero-logo mb-4" 
+                                                 style="max-width: 200px; height: auto;">
+                                        
+                                        <h1 class="hero-title display-4 mb-3">
+                                            Ask About Taraxa on ChatGPT
+                                        </h1>
+                                        
+                                            <p class="hero-description lead mb-4">
+                                                Check out the custom <a href="https://chatgpt.com/g/g-n8i9EAPV3-taraxa-praxis">Taraxa GPT</a> on ChatGPT5. We've loaded a corpus of Taraxa documentation and articles to try to give more accurate answers about the #1 L1 EVM.
+                                            </p>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
                         <div class="block-item block-article" 
                              data-sort="1757105004934">
                              
@@ -401,6 +431,41 @@
                                         
                                             <p class="block-description">Taraxa tops all Layer-1s in resource efficiency, achieving the highest realized TPS per dollar spent on a validator.
 Transparent, verifiable, and cost-balanced — real performance without the hype.</p>
+                                        
+                                    </div>
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="block-item block-article" 
+                             data-sort="1757158535818">
+                             
+                            
+                                <!-- Article Block -->
+                                <div class="article-block homepage-block">
+                                    
+                                        <div class="article-image">
+                                            <a href="/articles/taraxa-and-pixudi-revolutionizing-web3-gaming/">
+                                                <img src="/img/uploads/bg-1757158518052-194090468.png" alt="Taraxa and Pixudi: Revolutionizing Web3 Gaming" 
+                                                     class="article-block-image">
+                                            </a>
+                                        </div>
+                                    
+                                    <div class="block-content">
+                                        
+                                            
+                                                <h3 class="block-title">
+                                                    <a href="/articles/taraxa-and-pixudi-revolutionizing-web3-gaming/" class="article-title-link">
+                                                        Taraxa and Pixudi: Revolutionizing Web3 Gaming
+                                                    </a>
+                                                </h3>
+                                            
+                                        
+                                        
+                                            <p class="block-description">Taraxa and Pixudi’s partnership has revolutionized Web3 gaming, integrating Pixudi’s blockchain-based board game with Taraxa’s high-speed Layer-1 network. </p>
                                         
                                     </div>
                                 </div>
@@ -728,37 +793,40 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         }
 
         .blocks-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            column-count: 3;
+            column-gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        @media (max-width: 1200px) {
-            .blocks-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-            }
+        .block-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         @media (max-width: 900px) {
             .blocks-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+                column-count: 2;
+                column-gap: 15px;
+            }
+            
+            .block-item {
+                margin-bottom: 15px;
             }
         }
 
         @media (max-width: 600px) {
             .blocks-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                column-count: 1;
+                column-gap: 0;
             }
-        }
-
-        .block-item {
-            width: 100%;
-            margin-bottom: 0;
+            
+            .block-item {
+                margin-bottom: 20px;
+            }
         }
 
         .homepage-block {
@@ -803,24 +871,40 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
 
         /* Hero Block Styles */
         .hero-block {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(108, 117, 125, 0.9));
-            color: white;
-            border-radius: 15px;
-            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 0; /* Remove extra margin to fit in grid */
+        }
+
+        .hero-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .hero-title {
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            font-size: 1.5rem; /* Reduced from display-4 */
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-shadow: none; /* Remove text shadow */
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            opacity: 0.95;
+            font-size: 1rem; /* Reduced from 1.1rem */
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         .hero-logo {
-            filter: brightness(0) invert(1);
+            filter: none; /* Remove the invert filter so image is visible */
+            max-width: 120px !important; /* Smaller logo for better fit */
+            height: auto;
+            margin-bottom: 15px;
         }
 
         /* Quote Block Styles */
@@ -954,11 +1038,15 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
             }
             
             .hero-block {
-                padding: 30px 20px;
+                padding: 15px; /* Same as other blocks for consistency */
             }
             
             .hero-title {
-                font-size: 1.75rem;
+                font-size: 1.3rem; /* Smaller on mobile */
+            }
+            
+            .hero-logo {
+                max-width: 80px !important; /* Even smaller on mobile */
             }
             
             .feature-image .block-image {
