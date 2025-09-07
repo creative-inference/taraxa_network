@@ -83,12 +83,60 @@
             color: #e2e8f0;
         }
         
+        /* Ensure all content elements have proper text color */
+        .article-content p,
+        .article-content div,
+        .article-content span,
+        .article-content li,
+        .article-content td {
+            color: #e2e8f0;
+        }
+        
+        /* Ensure links are visible */
+        .article-content a {
+            color: #87ceeb;
+            text-decoration: underline;
+        }
+        
+        .article-content a:hover {
+            color: #b0e0e6;
+        }
+        
+        /* Override any inline styles that might make text black */
+        .article-content * {
+            color: inherit !important;
+        }
+        
+        .article-content a {
+            color: #87ceeb !important;
+        }
+        
+        .article-content h1,
+        .article-content h2,
+        .article-content h3,
+        .article-content h4,
+        .article-content h5,
+        .article-content h6 {
+            color: #ffffff !important;
+        }
+        
         .article-content img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 20px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Default margin for images without specific alignment */
+        .article-content img:not([style*="float"]):not([style*="margin"]) {
+            margin: 20px 0;
+        }
+        
+        /* Ensure floated images have proper clearfix */
+        .article-content::after {
+            content: "";
+            display: table;
+            clear: both;
         }
         
         .article-content h2, 
@@ -101,6 +149,50 @@
         
         .article-content p {
             margin-bottom: 1.5rem;
+        }
+        
+        /* Fix double spacing from Quill editor */
+        .article-content p:empty,
+        .article-content p br:only-child {
+            display: none;
+        }
+        
+        .article-content p + p:empty {
+            display: none;
+        }
+        
+        /* Remove extra breaks in paragraphs */
+        .article-content p br:first-child {
+            display: none;
+        }
+        
+        /* Larger YouTube embeds */
+        .article-content iframe[src*="youtube.com"] {
+            width: 100%;
+            height: 450px;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .article-content .ql-video {
+            width: 100%;
+            height: 450px;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .article-content iframe[src*="youtube.com"],
+            .article-content .ql-video {
+                height: 250px;
+                margin: 20px auto;
+            }
         }
         
         .article-content blockquote {
@@ -705,7 +797,7 @@
     <div class="social-icons mb-2">
         <a href="https://x.com/taraxa_network" target="_blank" aria-label="Taraxa on X"><i class="fab fa-x-twitter"></i></a>
         <a href="https://www.reddit.com/r/TaraxaNetwork/" target="_blank" aria-label="Taraxa on Reddit"><i class="fab fa-reddit-alien"></i></a>
-        <a href="https://discord.gg/wXJDJAPt" target="_blank" aria-label="Taraxa on Discord"><i class="fab fa-discord"></i></a>
+        <a href="https://discord.gg/x33n84gq" target="_blank" aria-label="Taraxa on Discord"><i class="fab fa-discord"></i></a>
         <a href="https://t.me/taraxa_praxis" target="_blank" aria-label="Taraxa on Telegram"><i class="fab fa-telegram-plane"></i></a>
     </div>
     <p class="mb-0">© <span id="currentYear"></span> Taraxa Praxis</p>
