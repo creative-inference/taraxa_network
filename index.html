@@ -364,40 +364,8 @@
                     
                 
                     
-                        <div class="block-item block-youtube" 
-                             data-sort="2">
-                             
-                            
-                                <!-- YouTube Block -->
-                                <div class="youtube-block homepage-block">
-                                    
-                                        <h3 class="block-title">Taraxa HQ Is Live in World of Dypians</h3>
-                                    
-                                    
-                                    
-                                        <div class="youtube-embed">
-                                            <iframe 
-                                                src="https://www.youtube.com/embed/o0gXGkLoCxM" 
-                                                frameborder="0" 
-                                                allowfullscreen
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                                            </iframe>
-                                        </div>
-                                    
-                                    
-                                        <div class="block-content">
-                                            <p class="block-description">Step into the all-new Taraxa Headquarters, now open in the center of the game’s downtown area.</p>
-                                        </div>
-                                    
-                                </div>
-                                
-                            
-                        </div>
-                    
-                
-                    
                         <div class="block-item block-article" 
-                             data-sort="3">
+                             data-sort="2">
                              
                             
                                 <!-- Article Block -->
@@ -432,7 +400,7 @@
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="4">
+                             data-sort="3">
                              
                             
                                 <!-- Article Block -->
@@ -459,6 +427,38 @@
                                             <p class="block-description">Taraxa and Pixudi’s partnership has revolutionized Web3 gaming, integrating Pixudi’s blockchain-based board game with Taraxa’s high-speed Layer-1 network. </p>
                                         
                                     </div>
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="block-item block-youtube" 
+                             data-sort="4">
+                             
+                            
+                                <!-- YouTube Block -->
+                                <div class="youtube-block homepage-block">
+                                    
+                                        <h3 class="block-title">Taraxa HQ Is Live in World of Dypians</h3>
+                                    
+                                    
+                                    
+                                        <div class="youtube-embed">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/o0gXGkLoCxM" 
+                                                frameborder="0" 
+                                                allowfullscreen
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                                            </iframe>
+                                        </div>
+                                    
+                                    
+                                        <div class="block-content">
+                                            <p class="block-description">Step into the all-new Taraxa Headquarters, now open in the center of the game’s downtown area.</p>
+                                        </div>
+                                    
                                 </div>
                                 
                             
@@ -982,41 +982,18 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         }
 
         .blocks-grid {
-            column-count: 3;
-            column-gap: 20px;
-            max-width: 1200px;
+            position: relative;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .block-item {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 20px;
-            break-inside: avoid;
-            page-break-inside: avoid;
+            position: absolute;
+            transition: all 0.4s ease;
+            margin-bottom: 0;
         }
 
-        @media (max-width: 900px) {
-            .blocks-grid {
-                column-count: 2;
-                column-gap: 15px;
-            }
-            
-            .block-item {
-                margin-bottom: 15px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .blocks-grid {
-                column-count: 1;
-                column-gap: 0;
-            }
-            
-            .block-item {
-                margin-bottom: 20px;
-            }
-        }
+        /* Responsive will be handled by JavaScript */
 
         .homepage-block {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
@@ -1351,6 +1328,100 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         
         $('#imageModal').modal('show');
     }
+    
+    // Fixed 1200px Desktop Masonry Layout
+    function initMasonry() {
+        const grid = document.getElementById('homepage-blocks');
+        if (!grid) return;
+
+        function layoutBlocks() {
+            const blocks = Array.from(grid.querySelectorAll('.block-item'));
+            if (blocks.length === 0) return;
+
+            // Sort blocks by sort order
+            blocks.sort((a, b) => {
+                const sortA = parseInt(a.getAttribute('data-sort')) || 0;
+                const sortB = parseInt(b.getAttribute('data-sort')) || 0;
+                return sortA - sortB;
+            });
+
+            // Fixed desktop-first approach
+            const windowWidth = window.innerWidth;
+            let columnCount, gap, columnWidth, containerWidth;
+            
+            // Fixed settings based on 1100px container
+            if (windowWidth <= 600) {
+                columnCount = 1;
+                gap = 20;
+                containerWidth = Math.min(windowWidth - 40, 400);
+                columnWidth = containerWidth;
+            } else if (windowWidth <= 900) {
+                columnCount = 2; 
+                gap = 20;
+                containerWidth = Math.min(windowWidth - 40, 800);
+                columnWidth = (containerWidth - gap) / 2;
+            } else {
+                columnCount = 3;
+                gap = 20;
+                containerWidth = 1100;
+                columnWidth = (containerWidth - (gap * 2)) / 3;
+            }
+
+            // Set grid container size
+            grid.style.width = containerWidth + 'px';
+            grid.style.margin = '0 auto';
+
+            // Track column heights
+            const columns = Array(columnCount).fill(0);
+            
+            // Place blocks
+            blocks.forEach((block, index) => {
+                block.style.position = 'absolute';
+                block.style.width = columnWidth + 'px';
+                
+                // Get block height after sizing
+                block.style.height = 'auto';
+                const blockHeight = block.scrollHeight || block.offsetHeight;
+                
+                // Left-to-right for first row, then shortest column
+                let targetColumn;
+                if (index < columnCount) {
+                    targetColumn = index;
+                } else {
+                    targetColumn = columns.indexOf(Math.min(...columns));
+                }
+                
+                // Calculate position
+                const x = targetColumn * (columnWidth + gap);
+                const y = columns[targetColumn];
+                
+                // Apply position
+                block.style.left = x + 'px';
+                block.style.top = y + 'px';
+                block.style.opacity = '1';
+                
+                // Update column height
+                columns[targetColumn] += blockHeight + 20;
+            });
+
+            // Set grid height
+            grid.style.height = Math.max(...columns) + 'px';
+        }
+
+        // Initial layout
+        setTimeout(layoutBlocks, 100);
+        
+        // Resize handler  
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(layoutBlocks, 150);
+        });
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', initMasonry);
+    
     </script>
 </body>
 </html>
