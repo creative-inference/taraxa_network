@@ -61,11 +61,11 @@ a:hover {
 
 @media (max-width: 576px) {
     .homepage-blocks-container {
-        margin-top: 140px !important; /* Account for taller mobile header with tagline */
+        margin-top: 110px !important; /* Account for mobile header with logo and tagline side-by-side */
     }
     
     .container.main-content {
-        margin-top: 140px !important;
+        margin-top: 110px !important;
     }
 }
 
