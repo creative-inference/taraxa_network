@@ -773,6 +773,37 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                         </div>
                     
                 
+                    
+                        <div class="block-item block-twitter" 
+                             data-sort="13">
+                             
+                            
+                                <!-- Twitter/X Block -->
+                                <div class="twitter-block homepage-block">
+                                    
+                                        <h3 class="block-title">Join the X Space with Taraxa and Coinomi</h3>
+                                    
+                                    
+                                    
+                                        <div class="twitter-embed">
+                                            <blockquote class="twitter-tweet" data-theme="light" data-width="350" data-conversation="none">
+                                                <a href="https://x.com/taraxa_project/status/1965445278699282573"></a>
+                                            </blockquote>
+                                        </div>
+                                    
+                                    
+                                        <div class="block-content">
+                                            <p class="block-description"><p><br></p></p>
+                                        </div>
+                                    
+                                    
+                                    
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
             </div>
         </div>
     </div>
@@ -1115,20 +1146,13 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         }
         
         /* Different gradients for different block types */
-        .text-block {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.9));
-        }
-        
-        .page-feature-block {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(248, 255, 248, 0.9));
-        }
-        
-        .quote-block {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 250, 240, 0.9));
-        }
         
         .youtube-block {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 248, 250, 0.9));
+        }
+        
+        .twitter-block {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.9));
         }
         
         .article-block {
@@ -1208,39 +1232,6 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
             margin-bottom: 15px;
         }
 
-        /* Quote Block Styles */
-        .quote-block {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-left: 4px solid #007bff;
-        }
-
-        .quote-block .blockquote p {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #495057;
-        }
-
-        .quote-block .blockquote-footer {
-            font-size: 0.9rem;
-        }
-
-        /* Features Grid Block */
-        .features-grid-block.bg-light {
-            background: #f8f9fa !important;
-        }
-
-        .features-grid-block .features-content i.fa-3x {
-            color: #007bff;
-        }
-
-        /* Page Feature Block */
-        .page-feature-block {
-            overflow: hidden;
-        }
-
-        .page-feature-block .btn {
-            margin-top: 10px;
-        }
 
         /* Article Block Styles */
         .article-block .article-image {
@@ -1293,6 +1284,58 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         /* Ensure YouTube block descriptions are black */
         .youtube-block .block-description {
             color: #000 !important;
+        }
+
+        /* Twitter Block Styles */
+        .twitter-block .twitter-embed {
+            margin-bottom: 15px;
+            min-height: 200px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .twitter-embed .twitter-tweet {
+            margin: 0 auto !important;
+        }
+        
+        /* Hide the fallback link text */
+        .twitter-embed .twitter-tweet a {
+            color: transparent !important;
+            font-size: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            display: block !important;
+            text-decoration: none !important;
+        }
+
+        .twitter-block .twitter-tweet {
+            margin: 0 auto !important;
+            max-width: 100% !important;
+        }
+
+        .twitter-block .block-description {
+            color: #000 !important;
+        }
+
+        .twitter-block .twitter-article-link {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .twitter-block .twitter-article-link .btn {
+            background: linear-gradient(45deg, #1da1f2, #1a91da);
+            border-color: #1da1f2;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .twitter-block .twitter-article-link .btn:hover {
+            background: linear-gradient(45deg, #1a91da, #1580c4);
+            border-color: #1a91da;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3);
         }
 
         /* Clickable Image Block Styles */
@@ -1383,6 +1426,8 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Twitter Embed Script -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
     const yearSpan = document.getElementById('currentYear');
     if (yearSpan) {
@@ -1564,7 +1609,23 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
     }
 
     // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', initMasonry);
+    document.addEventListener('DOMContentLoaded', function() {
+        initMasonry();
+        
+        // Initialize Twitter widgets after a short delay
+        setTimeout(function() {
+            if (window.twttr && window.twttr.widgets) {
+                window.twttr.widgets.load();
+            }
+        }, 500);
+        
+        // Also try to load Twitter widgets after masonry layout is complete
+        setTimeout(function() {
+            if (window.twttr && window.twttr.widgets) {
+                window.twttr.widgets.load();
+            }
+        }, 1500);
+    });
     
     </script>
 </body>
