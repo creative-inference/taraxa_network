@@ -364,8 +364,45 @@
                     
                 
                     
-                        <div class="block-item block-youtube" 
+                        <div class="block-item block-image" 
                              data-sort="2">
+                             
+                            
+                                <!-- Image Block -->
+                                <div class="image-block homepage-block clickable-block" 
+                                     style="cursor: pointer; position: relative;" 
+                                     title="Click to view full size image"
+                                     onclick="openImageModal('/img/uploads/bg-1757424815387-781812772.png', '', '')">
+                                    
+                                    <!-- Click indicator overlay -->
+                                    <div class="click-overlay">
+                                        <i class="fas fa-expand-alt"></i>
+                                        <span>Click to enlarge</span>
+                                    </div>
+                                    
+                                    
+                                        <img src="/img/uploads/bg-1757424815387-781812772.png" alt="" 
+                                             class="block-image">
+                                    
+                                    
+                                        <div class="block-content">
+                                            
+                                            
+                                                <div class="block-body">
+                                                    <p><br></p>
+                                                </div>
+                                            
+                                        </div>
+                                    
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="block-item block-youtube" 
+                             data-sort="3">
                              
                             
                                 <!-- YouTube Block -->
@@ -397,7 +434,7 @@
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="3">
+                             data-sort="4">
                              
                             
                                 <!-- Article Block -->
@@ -432,7 +469,7 @@
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="4">
+                             data-sort="5">
                              
                             
                                 <!-- Article Block -->
@@ -467,7 +504,7 @@
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="5">
+                             data-sort="6">
                              
                             
                                 <!-- YouTube Block -->
@@ -499,7 +536,7 @@
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="6">
+                             data-sort="7">
                              
                             
                                 <!-- Article Block -->
@@ -534,7 +571,7 @@
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="7">
+                             data-sort="8">
                              
                             
                                 <!-- Article Block -->
@@ -570,7 +607,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-hero" 
-                             data-sort="8">
+                             data-sort="9">
                              
                             
                                 <!-- Hero Block -->
@@ -600,7 +637,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="9">
+                             data-sort="10">
                              
                             
                                 <!-- Article Block -->
@@ -637,7 +674,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="10">
+                             data-sort="11">
                              
                             
                                 <!-- YouTube Block -->
@@ -665,7 +702,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="11">
+                             data-sort="12">
                              
                             
                                 <!-- YouTube Block -->
@@ -1413,7 +1450,27 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                 // Get block height after sizing
                 block.style.height = 'auto';
-                const blockHeight = block.scrollHeight || block.offsetHeight;
+                
+                // Force layout calculation for accurate height
+                block.offsetHeight; // Force reflow
+                
+                let blockHeight;
+                if (block.classList.contains('block-image')) {
+                    // Force accurate height calculation for image blocks
+                    const actualBlock = block.querySelector('.homepage-block');
+                    const blockImage = block.querySelector('.block-image');
+                    
+                    if (actualBlock && blockImage) {
+                        // Use the actual rendered height of the inner block
+                        blockHeight = actualBlock.offsetHeight || block.offsetHeight;
+                    } else {
+                        blockHeight = block.offsetHeight;
+                    }
+                    
+                    console.log('Image block height used:', blockHeight);
+                } else {
+                    blockHeight = block.scrollHeight || block.offsetHeight;
+                }
                 
                 // Left-to-right for first row, then shortest column
                 let targetColumn;
@@ -1442,6 +1499,20 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
 
         // Initial layout
         setTimeout(layoutBlocks, 100);
+        
+        // Re-layout after images load to fix height calculations
+        const images = grid.querySelectorAll('img');
+        images.forEach(img => {
+            if (!img.complete) {
+                img.addEventListener('load', () => {
+                    setTimeout(layoutBlocks, 50);
+                });
+            }
+        });
+        
+        // Also re-layout after a short delay to catch any async loading
+        setTimeout(layoutBlocks, 500);
+        setTimeout(layoutBlocks, 1000);
         
         // Resize handler  
         let resizeTimeout;

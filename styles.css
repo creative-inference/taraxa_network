@@ -332,6 +332,80 @@ a:hover {
 }
 
 
+/* --- IMAGE BLOCK FIXES --- */
+/* Fix spacing issues in image blocks */
+.image-block .block-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Remove spacing when image block has no description or empty content */
+.image-block .block-content:empty,
+.image-block .block-content .block-body:empty,
+.image-block .block-content .block-body p:empty {
+    display: none !important;
+}
+
+/* Hide paragraphs that only contain whitespace or br tags */
+.image-block .block-content .block-body p:has(br:only-child),
+.image-block .block-content .block-body p:only-child:has(br),
+.image-block .block-content .block-body div:has(p:empty) {
+    display: none !important;
+}
+
+/* Alternative approach for browsers that don't support :has() */
+.image-block .block-content .block-body p:only-child br:only-child {
+    display: none !important;
+}
+
+/* Hide the entire block-content if it only has empty elements */
+.image-block .block-content:has(.block-body p:only-child br:only-child) {
+    display: none !important;
+}
+
+/* Fix modal impact on grid layout */
+.modal-backdrop {
+    position: fixed !important;
+}
+
+.modal {
+    position: fixed !important;
+}
+
+/* Ensure image blocks don't reserve extra space */
+.image-block.homepage-block {
+    overflow: hidden;
+    padding-bottom: 15px !important;
+    height: auto !important;
+}
+
+/* Force specific height for image blocks with no content */
+.image-block.homepage-block:has(.block-content .block-body p:only-child br:only-child) {
+    height: auto !important;
+    min-height: unset !important;
+}
+
+.image-block.homepage-block .block-image {
+    margin-bottom: 0 !important;
+}
+
+/* Force tight spacing for image blocks in grid */
+.block-item.block-image {
+    margin-bottom: 0 !important;
+}
+
+/* Prevent image blocks from creating phantom space */
+.image-block.clickable-block {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Tighten up block content spacing */
+.image-block .block-content .block-body {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 /* --- FOOTER --- */
 .praxis-footer {
     margin-top: auto;
