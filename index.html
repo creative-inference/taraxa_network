@@ -373,8 +373,39 @@ body {
             <div class="blocks-grid" id="homepage-blocks">
                 
                     
-                        <div class="block-item block-youtube" 
+                        <div class="block-item block-twitter" 
                              data-sort="1">
+                             
+                            
+                                <!-- Twitter/X Block -->
+                                <div class="twitter-block homepage-block">
+                                    
+                                        <h3 class="block-title">Join the X Space with Taraxa and Coinomi</h3>
+                                    
+                                    
+                                    
+                                        <div class="twitter-embed">
+                                            <blockquote class="twitter-tweet" data-theme="light" data-width="350" data-conversation="none">
+                                                <a href="https://twitter.com/taraxa_project/status/1965445278699282573"></a>
+                                            </blockquote>
+                                        </div>
+                                    
+                                    
+                                        <div class="block-content">
+                                            <p class="block-description"><p><br></p></p>
+                                        </div>
+                                    
+                                    
+                                    
+                                </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="block-item block-youtube" 
+                             data-sort="2">
                              
                             
                                 <!-- YouTube Block -->
@@ -406,7 +437,7 @@ body {
                 
                     
                         <div class="block-item block-image" 
-                             data-sort="2">
+                             data-sort="3">
                              
                             
                                 <!-- Image Block -->
@@ -443,7 +474,7 @@ body {
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="3">
+                             data-sort="4">
                              
                             
                                 <!-- YouTube Block -->
@@ -475,7 +506,7 @@ body {
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="4">
+                             data-sort="5">
                              
                             
                                 <!-- Article Block -->
@@ -510,7 +541,7 @@ body {
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="5">
+                             data-sort="6">
                              
                             
                                 <!-- Article Block -->
@@ -545,7 +576,7 @@ body {
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="6">
+                             data-sort="7">
                              
                             
                                 <!-- YouTube Block -->
@@ -577,7 +608,7 @@ body {
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="7">
+                             data-sort="8">
                              
                             
                                 <!-- Article Block -->
@@ -612,7 +643,7 @@ body {
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="8">
+                             data-sort="9">
                              
                             
                                 <!-- Article Block -->
@@ -648,7 +679,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-hero" 
-                             data-sort="9">
+                             data-sort="10">
                              
                             
                                 <!-- Hero Block -->
@@ -678,7 +709,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-article" 
-                             data-sort="10">
+                             data-sort="11">
                              
                             
                                 <!-- Article Block -->
@@ -715,7 +746,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="11">
+                             data-sort="12">
                              
                             
                                 <!-- YouTube Block -->
@@ -743,7 +774,7 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                 
                     
                         <div class="block-item block-youtube" 
-                             data-sort="12">
+                             data-sort="13">
                              
                             
                                 <!-- YouTube Block -->
@@ -766,37 +797,6 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
                                         <div class="block-content">
                                             <p class="block-description"><p>Taraxa is presented as the perfect solution to act as a decentralized application layer for the emerging IOT ecosystem.</p></p>
                                         </div>
-                                    
-                                </div>
-                                
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="block-item block-twitter" 
-                             data-sort="13">
-                             
-                            
-                                <!-- Twitter/X Block -->
-                                <div class="twitter-block homepage-block">
-                                    
-                                        <h3 class="block-title">Join the X Space with Taraxa and Coinomi</h3>
-                                    
-                                    
-                                    
-                                        <div class="twitter-embed">
-                                            <blockquote class="twitter-tweet" data-theme="light" data-width="350" data-conversation="none">
-                                                <a href="https://twitter.com/taraxa_project/status/1876320914066342110"></a>
-                                            </blockquote>
-                                        </div>
-                                    
-                                    
-                                        <div class="block-content">
-                                            <p class="block-description"><p><br></p></p>
-                                        </div>
-                                    
-                                    
                                     
                                 </div>
                                 
@@ -1599,6 +1599,8 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
         // Also re-layout after a short delay to catch any async loading
         setTimeout(layoutBlocks, 500);
         setTimeout(layoutBlocks, 1000);
+        setTimeout(layoutBlocks, 2000); // Extra delay for Twitter widgets
+        setTimeout(layoutBlocks, 3000); // Even more delay for slower connections
         
         // Resize handler  
         let resizeTimeout;
@@ -1606,25 +1608,51 @@ Transparent, verifiable, and cost-balanced — real performance without the hype
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(layoutBlocks, 150);
         });
+        
+        // Listen for Twitter widget loaded event
+        grid.addEventListener('twitterLoaded', () => {
+            console.log('Twitter widgets loaded, re-layouting masonry');
+            setTimeout(layoutBlocks, 100);
+        });
     }
 
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
         initMasonry();
         
-        // Initialize Twitter widgets after a short delay
-        setTimeout(function() {
-            if (window.twttr && window.twttr.widgets) {
+        // Initialize Twitter widgets and re-layout when they load
+        if (window.twttr) {
+            window.twttr.ready(function() {
+                window.twttr.events.bind('rendered', function() {
+                    // Re-layout masonry when Twitter widgets finish rendering
+                    setTimeout(function() {
+                        const grid = document.getElementById('homepage-blocks');
+                        if (grid) {
+                            const event = new CustomEvent('twitterLoaded');
+                            grid.dispatchEvent(event);
+                        }
+                    }, 100);
+                });
+                
                 window.twttr.widgets.load();
-            }
-        }, 500);
+            });
+        }
         
-        // Also try to load Twitter widgets after masonry layout is complete
+        // Fallback Twitter widget loading
         setTimeout(function() {
             if (window.twttr && window.twttr.widgets) {
-                window.twttr.widgets.load();
+                window.twttr.widgets.load().then(function() {
+                    // Re-layout after Twitter widgets load
+                    setTimeout(function() {
+                        const grid = document.getElementById('homepage-blocks');
+                        if (grid) {
+                            const event = new CustomEvent('twitterLoaded');
+                            grid.dispatchEvent(event);
+                        }
+                    }, 200);
+                });
             }
-        }, 1500);
+        }, 1000);
     });
     
     </script>
