@@ -10,7 +10,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #000;
-    color: #ccc; /* Default text color for body */
+    color: #000; /* Default text color for body */
     padding-top: 50px; /* Account for fixed top banner */
 }
 
@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    color: #ccc; /* Lighter grey for paragraphs by default */
+    color: #000; /* Darker text for paragraphs */
     line-height: 1.7; /* Improved readability for paragraphs */
 }
 
@@ -313,7 +313,7 @@ a:hover {
 
 .detail-page-callout .callout-button-detail.btn-outline-light {
     /* Bootstrap .btn-outline-light on dark bg is good, but we can customize */
-    color: #ccc;
+    color: #000;
     border-color: #555;
     font-size: 0.9rem;
     padding: 0.375rem 1rem; /* Standard small button padding */
