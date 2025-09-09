@@ -480,24 +480,40 @@ body {
 
 @media (max-width: 576px) {
     .site-header {
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
+    }
+    
+    .site-header .navbar-brand {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .site-header .brand-logo {
+        height: 40px;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    
+    .site-header .brand-text {
+        align-items: center;
+        text-align: center;
     }
     
     .site-header .brand-title {
         font-size: 1.1rem;
+        margin-bottom: 2px;
     }
     
     .site-header .brand-subtitle {
-        display: none;
-    }
-    
-    .site-header .brand-logo {
-        height: 35px;
-        margin-right: 10px;
+        display: block !important;
+        font-size: 0.7rem;
+        opacity: 0.8;
     }
     
     .site-header .navbar-toggler {
         padding: 6px 10px;
+        margin-top: 0.5rem;
     }
 }
 </style>

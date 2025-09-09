@@ -48,6 +48,27 @@ a:hover {
     margin-top: 120px !important;
 }
 
+/* Reduce spacing on mobile */
+@media (max-width: 768px) {
+    .homepage-blocks-container {
+        margin-top: 100px !important; /* Less space on mobile */
+    }
+    
+    .container.main-content {
+        margin-top: 100px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .homepage-blocks-container {
+        margin-top: 140px !important; /* Account for taller mobile header with tagline */
+    }
+    
+    .container.main-content {
+        margin-top: 140px !important;
+    }
+}
+
 .top-banner a.official-link {
     color: #66aaff;
     text-decoration: underline;
