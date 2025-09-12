@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     background-color: #000;
     color: #000; /* Default text color for body */
-    padding-top: 50px; /* Account for fixed top banner */
+    padding-top: 0; /* No top padding for ribbon header */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    color: #000; /* Lighter grey for paragraphs by default */
+    color: #000; /* Darker text for paragraphs */
     line-height: 1.7; /* Improved readability for paragraphs */
 }
 
@@ -34,17 +34,39 @@ a:hover {
 
 /* --- TOP BANNER --- */
 .top-banner {
-    background-color: #1a1a1a;
-    color: #aaa;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1031;
-    border-bottom: 1px solid #333;
-    font-size: 0.9rem;
+    display: none !important;
+}
+
+/* --- RIBBON HEADER SPACING --- */
+/* Add proper spacing below the fixed ribbon header */
+.homepage-blocks-container {
+    margin-top: 120px !important; /* Space below ribbon header */
+}
+
+/* For other pages */
+.container.main-content {
+    margin-top: 120px !important;
+}
+
+/* Reduce spacing on mobile */
+@media (max-width: 768px) {
+    .homepage-blocks-container {
+        margin-top: 100px !important; /* Less space on mobile */
+    }
+    
+    .container.main-content {
+        margin-top: 100px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .homepage-blocks-container {
+        margin-top: 110px !important; /* Account for mobile header with logo and tagline side-by-side */
+    }
+    
+    .container.main-content {
+        margin-top: 110px !important;
+    }
 }
 
 .top-banner a.official-link {
@@ -313,7 +335,7 @@ a:hover {
 
 .detail-page-callout .callout-button-detail.btn-outline-light {
     /* Bootstrap .btn-outline-light on dark bg is good, but we can customize */
-    color: #ccc;
+    color: #000;
     border-color: #555;
     font-size: 0.9rem;
     padding: 0.375rem 1rem; /* Standard small button padding */
@@ -331,6 +353,80 @@ a:hover {
     margin-left: 5px;
 }
 
+
+/* --- IMAGE BLOCK FIXES --- */
+/* Fix spacing issues in image blocks */
+.image-block .block-content {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Remove spacing when image block has no description or empty content */
+.image-block .block-content:empty,
+.image-block .block-content .block-body:empty,
+.image-block .block-content .block-body p:empty {
+    display: none !important;
+}
+
+/* Hide paragraphs that only contain whitespace or br tags */
+.image-block .block-content .block-body p:has(br:only-child),
+.image-block .block-content .block-body p:only-child:has(br),
+.image-block .block-content .block-body div:has(p:empty) {
+    display: none !important;
+}
+
+/* Alternative approach for browsers that don't support :has() */
+.image-block .block-content .block-body p:only-child br:only-child {
+    display: none !important;
+}
+
+/* Hide the entire block-content if it only has empty elements */
+.image-block .block-content:has(.block-body p:only-child br:only-child) {
+    display: none !important;
+}
+
+/* Fix modal impact on grid layout */
+.modal-backdrop {
+    position: fixed !important;
+}
+
+.modal {
+    position: fixed !important;
+}
+
+/* Ensure image blocks don't reserve extra space */
+.image-block.homepage-block {
+    overflow: hidden;
+    padding-bottom: 15px !important;
+    height: auto !important;
+}
+
+/* Force specific height for image blocks with no content */
+.image-block.homepage-block:has(.block-content .block-body p:only-child br:only-child) {
+    height: auto !important;
+    min-height: unset !important;
+}
+
+.image-block.homepage-block .block-image {
+    margin-bottom: 0 !important;
+}
+
+/* Force tight spacing for image blocks in grid */
+.block-item.block-image {
+    margin-bottom: 0 !important;
+}
+
+/* Prevent image blocks from creating phantom space */
+.image-block.clickable-block {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Tighten up block content spacing */
+.image-block .block-content .block-body {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
 
 /* --- FOOTER --- */
 .praxis-footer {
