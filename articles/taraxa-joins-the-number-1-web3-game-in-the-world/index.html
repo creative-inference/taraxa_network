@@ -66,7 +66,7 @@
     "name": "Taraxa Praxis",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://taraxa.network/img/taraxa_new.png"
+      "url": "https://taraxa.network/img/praxis_logo.png"
     }
   },
   "description": "&lt;p&gt;This collaboration leverages Taraxa’s high-throughput blockchain to enhance WoD’s immersive metaverse, driving player engagement through events, rewards, and seamless blockchain integration.
@@ -83,7 +83,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="/styles.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<!-- Favicon -->
+
+<link rel="icon" href="/img/uploads/bg-1757708288591-284267202.png" type="image/png">
+<link rel="shortcut icon" href="/img/uploads/bg-1757708288591-284267202.png" type="image/png">
+<link rel="apple-touch-icon" href="/img/uploads/bg-1757708288591-284267202.png">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPFC6F2WZX"></script>
 <script>
@@ -266,15 +270,37 @@
     <div class="top-banner">
  </div>
     <style>
+/* Ensure body has no top margin/padding and accounts for fixed header */
+body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Add appropriate spacing below header */
+.site-header + * {
+    margin-top: 0;
+    padding-top: 6rem; /* Adjust based on header height */
+}
+
+/* Override any top banner adjustments if present */
+.homepage-blocks-container,
+.container.main-content {
+    padding-top: 2rem;
+}
+
 .site-header {
-    background: rgba(0, 0, 0, 0.7);
+    background: #000;
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1030;
     padding: 1rem 0;
+    margin: 0;
 }
 
 .site-header .container {
@@ -298,7 +324,7 @@
 }
 
 .site-header .brand-logo {
-    height: 50px;
+    height: 60px;
     width: auto;
     margin-right: 20px;
     transition: transform 0.3s ease;
@@ -417,7 +443,7 @@
     }
     
     .site-header .brand-logo {
-        height: 45px;
+        height: 55px;
         margin-right: 15px;
     }
     
@@ -451,27 +477,43 @@
     }
     
     .site-header .brand-logo {
-        height: 40px;
+        height: 50px;
         margin-right: 12px;
     }
 }
 
 @media (max-width: 576px) {
     .site-header {
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
     }
     
-    .site-header .brand-title {
-        font-size: 1.1rem;
-    }
-    
-    .site-header .brand-subtitle {
-        display: none;
+    .site-header .navbar-brand {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
     }
     
     .site-header .brand-logo {
-        height: 35px;
-        margin-right: 10px;
+        height: 48px;
+        margin-right: 12px;
+        margin-bottom: 0;
+    }
+    
+    .site-header .brand-text {
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .site-header .brand-title {
+        font-size: 1.0rem;
+        margin-bottom: 2px;
+    }
+    
+    .site-header .brand-subtitle {
+        display: block !important;
+        font-size: 0.65rem;
+        opacity: 0.8;
+        line-height: 1.2;
     }
     
     .site-header .navbar-toggler {
@@ -484,14 +526,14 @@
     <div class="container">
         <a class="navbar-brand" href="/">
             
-                <img src="/img/taraxa_new.png" alt="Taraxa Praxis" class="brand-logo">
+                <img src="/img/uploads/bg-1757708288591-284267202.png" alt="Taraxa Praxis" class="brand-logo">
             
             <div class="brand-text">
                 <div class="brand-title">
                     Taraxa Praxis
                 </div>
                 <div class="brand-subtitle">
-                    Orchestrating the Future of Autonomous Economies
+                    Explore the Top Layer-1 EVM BlockDAG
                 </div>
             </div>
         </a>
@@ -542,303 +584,6 @@
         </div>
     </div>
 
-    <!-- Word Cloud Section -->
-<section class="word-cloud-section py-4 mt-5">
-    <div class="container">
-        <div class="word-cloud-container">
-            
-                
-                    <a href="/depin/" class="word-cloud-item size4" 
-                       title="DePIN on Taraxa"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/007bff/ffffff?text=DePIN" alt="DePIN on Taraxa" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">DePIN on Taraxa</span>
-                    </a>
-                
-                    <a href="/iot-web3/" class="word-cloud-item size1" 
-                       title="IoT &amp; Web3 Convergence"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/28a745/ffffff?text=IoT" alt="IoT &amp; Web3 Convergence" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">IoT &amp; Web3 Convergence</span>
-                    </a>
-                
-                    <a href="/machine-agreements/" class="word-cloud-item size3" 
-                       title="Machine Agreements on Taraxa"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/dc3545/ffffff?text=MA" alt="Machine Agreements on Taraxa" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">Machine Agreements on Taraxa</span>
-                    </a>
-                
-                    <a href="/machine-defi/" class="word-cloud-item size3" 
-                       title="Machine DeFi (DeFAI) on Taraxa"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/ffc107/000000?text=DeFAI" alt="Machine DeFi (DeFAI) on Taraxa" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">Machine DeFi (DeFAI) on Taraxa</span>
-                    </a>
-                
-                    <a href="/machine-id/" class="word-cloud-item size2" 
-                       title="Machine ID on Taraxa"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/6c757d/ffffff?text=ID" alt="Machine ID on Taraxa" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">Machine ID on Taraxa</span>
-                    </a>
-                
-                    <a href="/microtransactions/" class="word-cloud-item size1" 
-                       title="Microtransactions in the Machine Economy"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/17a2b8/ffffff?text=μTX" alt="Microtransactions in the Machine Economy" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">Microtransactions in the Machine Economy</span>
-                    </a>
-                
-                    <a href="/robotics/" class="word-cloud-item size1" 
-                       title="Robotics &amp; Taraxa"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/fd7e14/ffffff?text=🤖" alt="Robotics &amp; Taraxa" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">Robotics &amp; Taraxa</span>
-                    </a>
-                
-                    <a href="/agentic-economy/" class="word-cloud-item size3" 
-                       title="The Agentic Economy"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/6f42c1/ffffff?text=AE" alt="The Agentic Economy" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">The Agentic Economy</span>
-                    </a>
-                
-                    <a href="/economy-of-things/" class="word-cloud-item size2" 
-                       title="The Economy of Things (EoT)"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/20c997/ffffff?text=EoT" alt="The Economy of Things (EoT)" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">The Economy of Things (EoT)</span>
-                    </a>
-                
-                    <a href="/m2m-economy/" class="word-cloud-item size4" 
-                       title="The Machine-to-Machine (M2M) Economy"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/e83e8c/ffffff?text=M2M" alt="The Machine-to-Machine (M2M) Economy" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">The Machine-to-Machine (M2M) Economy</span>
-                    </a>
-                
-                    <a href="/tokenization/" class="word-cloud-item size2" 
-                       title="Tokenization on Taraxa"
-                       data-toggle="tooltip">
-                        
-                            
-                            <img src="https://via.placeholder.com/48x48/795548/ffffff?text=🪙" alt="Tokenization on Taraxa" class="cloud-image" 
-                                 onerror="this.style.display='none'">
-                        
-                        <span class="cloud-text">Tokenization on Taraxa</span>
-                    </a>
-                
-            
-        </div>
-    </div>
-</section>
-
-<style>
-.word-cloud-section {
-    background: rgba(0, 0, 0, 0.7);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.word-cloud-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 15px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.word-cloud-item {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #e9ecef;
-    border-radius: 8px;
-    padding: 10px;
-    background: rgba(52, 58, 64, 0.8);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: visible;
-    min-width: 65px;
-    max-width: 120px;
-}
-
-.word-cloud-item:hover {
-    text-decoration: none;
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,123,255,0.3);
-    border-color: rgba(0, 123, 255, 0.5);
-    background: rgba(0, 123, 255, 0.2);
-}
-
-.cloud-image {
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    object-fit: cover;
-    margin-bottom: 4px;
-}
-
-.cloud-text {
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center;
-    line-height: 1.3;
-    max-width: 110px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
-
-/* Size variations */
-.word-cloud-item.size1 {
-    opacity: 0.8;
-    min-width: 55px;
-    max-width: 95px;
-}
-
-.word-cloud-item.size1 .cloud-image {
-    width: 20px;
-    height: 20px;
-}
-
-.word-cloud-item.size1 .cloud-text {
-    font-size: 11px;
-}
-
-.word-cloud-item.size2 {
-    opacity: 0.9;
-    min-width: 60px;
-    max-width: 105px;
-}
-
-.word-cloud-item.size2 .cloud-image {
-    width: 22px;
-    height: 22px;
-}
-
-.word-cloud-item.size2 .cloud-text {
-    font-size: 11px;
-}
-
-.word-cloud-item.size3 {
-    opacity: 1;
-}
-
-.word-cloud-item.size4 {
-    font-weight: 600;
-    min-width: 75px;
-    max-width: 130px;
-}
-
-.word-cloud-item.size4 .cloud-image {
-    width: 28px;
-    height: 28px;
-}
-
-.word-cloud-item.size4 .cloud-text {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.word-cloud-item.size5 {
-    font-weight: 700;
-    min-width: 85px;
-    max-width: 140px;
-}
-
-.word-cloud-item.size5 .cloud-image {
-    width: 32px;
-    height: 32px;
-}
-
-.word-cloud-item.size5 .cloud-text {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .word-cloud-container {
-        gap: 6px;
-        padding: 10px;
-    }
-    
-    .word-cloud-item {
-        padding: 8px;
-        min-width: 50px;
-        max-width: 100px;
-    }
-    
-    .cloud-image {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .cloud-text {
-        font-size: 10px;
-        max-width: 90px;
-    }
-    
-    .word-cloud-item.size4 .cloud-image,
-    .word-cloud-item.size5 .cloud-image {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .word-cloud-item.size4 .cloud-text,
-    .word-cloud-item.size5 .cloud-text {
-        font-size: 11px;
-    }
-}
-</style>
     <footer class="praxis-footer text-center py-4">
     <div class="social-icons mb-2">
         <a href="https://x.com/taraxa_network" target="_blank" aria-label="Taraxa on X"><i class="fab fa-x-twitter"></i></a>
@@ -851,6 +596,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Twitter Embed Script -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script>
     const yearSpan = document.getElementById('currentYear');
     if (yearSpan) {
